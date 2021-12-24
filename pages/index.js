@@ -12,10 +12,6 @@ export default function Home() {
     <div>
       <Head>
         <title>Weather App-Next</title>
-        <link
-          href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap"
-          rel="stylesheet"
-        ></link>
       </Head>
       <div className={` ${darkMode && "dark"}`}>
         <div className=" flex flex-col min-h-screen dark:bg-[#121212] ">

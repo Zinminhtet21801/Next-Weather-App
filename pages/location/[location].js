@@ -8,6 +8,7 @@ import TodayWeather from "../../components/TodayWeather";
 import WeeklyWeather from "../../components/WeeklyWeather";
 import { DarkModeContext } from "../../contexts/DarkMode";
 import moment from "moment-timezone";
+import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const city = getCityId(context.params.location);
@@ -71,9 +72,6 @@ const getHourlyWeather = (hourlyData, timezone) => {
   return todaysData;
 };
 
-
-
-
 const Location = ({
   city,
   weather,
@@ -84,28 +82,41 @@ const Location = ({
 }) => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
   return (
-    <div className={` ${darkMode && "dark"} max-w-full font-nunito `}>
-      <div className=" flex flex-col min-h-screen dark:bg-[#121212] text-[#242424] dark:text-white  ">
-        <DarkModeToggle />
-        <div className="max-w-[800px] w-full mx-auto px-4  ">
-          <div className="w-full flex flex-col items-center justify-center ">
-            <div className="self-start my-[15px] ">
-              <Link passHref href={"/"}>
-                <span className="text-[#4361ee] font-semibold cursor-pointer hover:opacity-30 transition " >&larr; Home</span>
-              </Link>
+    <>
+      <Head>
+        <title>Weather App-Next</title>
+      </Head>
+      <div className={` ${darkMode && "dark"} max-w-full font-nunito `}>
+        <div className=" flex flex-col min-h-screen dark:bg-[#121212] text-[#242424] dark:text-white  ">
+          <DarkModeToggle />
+          <div className="max-w-[800px] w-full mx-auto px-4  ">
+            <div className="w-full flex flex-col items-center justify-center ">
+              <div className="self-start my-[15px] ">
+                <Link passHref href={"/"}>
+                  <span className="text-[#4361ee] font-semibold cursor-pointer hover:opacity-30 transition ">
+                    &larr; Home
+                  </span>
+                </Link>
+              </div>
+              <SearchBar mWidth={`800px`} />
+              <TodayWeather
+                city={city}
+                weather={weeklyWeather[0]}
+                timezone={timezone}
+              />
+              <HourlyWeather
+                hourlyWeather={hourlyWeather}
+                timezone={timezone}
+              />
+              <WeeklyWeather
+                weeklyWeather={weeklyWeather}
+                timezone={timezone}
+              />
             </div>
-            <SearchBar mWidth={`800px`} />
-            <TodayWeather
-              city={city}
-              weather={weeklyWeather[0]}
-              timezone={timezone}
-            />
-            <HourlyWeather hourlyWeather={hourlyWeather} timezone={timezone} />
-            <WeeklyWeather weeklyWeather={weeklyWeather} timezone={timezone} />
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
