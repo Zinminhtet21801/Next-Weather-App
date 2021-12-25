@@ -4,7 +4,7 @@ import Image from "next/image";
 const WeeklyWeather = ({ weeklyWeather, timezone }) => {
   //TODO
   return (
-    <div className="w-full mt-5 text-white ">
+    <div className="w-full mt-5 ">
       <h3 className="text-[2rem] ">
         Weekly <span className="opacity-90 font-extralight ">Weather</span>
       </h3>
@@ -17,7 +17,7 @@ const WeeklyWeather = ({ weeklyWeather, timezone }) => {
 
           return (
             <div
-              className="rounded-xl bg-[#22b0db] px-[20px] py-[10px] mb-[15px] flex flex-wrap justify-between items-center "
+              className="rounded-xl text-white bg-[#22b0db] px-[20px] py-[10px] mb-[15px] flex flex-wrap justify-between items-center "
               key={weather.dt}
             >
               <div className="flex  items-center ">

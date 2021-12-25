@@ -98,7 +98,7 @@ const Location = ({
                   </span>
                 </Link>
               </div>
-              <SearchBar mWidth={`800px`} />
+              <SearchBar />
               <TodayWeather
                 city={city}
                 weather={weeklyWeather[0]}

@@ -3,7 +3,7 @@ import Cities from "../data/city.list.json";
 import Router from "next/router";
 import Link from "next/link";
 
-const SearchBar = ({mWidth}) => {
+const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
@@ -45,7 +45,7 @@ const SearchBar = ({mWidth}) => {
 
   return (
     <div className="w-full dark:text-white font-nunito  ">
-      <div className={`w-full max-w-[${mWidth}] mx-auto`}>
+      <div className={`max-w-[800px] mx-auto`}>
         <input
           type="text"
           value={query}
@@ -56,7 +56,8 @@ const SearchBar = ({mWidth}) => {
         />
 
         {query.length > 3 && (
-          <ul className={`absolute z-50 w-full max-w-[${mWidth}] font-semibold bg-blue-400  mx-auto rounded-[10px] mt-2 divide-y`}>
+          <div className="relative " >
+          <ul className={`absolute z-50 w-full max-w-[800px] font-semibold bg-blue-400  mx-auto rounded-[10px] mt-2 divide-y`}>
             {results.length > 0 ? (
               results.map((city) => {
                 return (
@@ -75,6 +76,7 @@ const SearchBar = ({mWidth}) => {
               <li className="p-[15px] ">No results found</li>
             )}
           </ul>
+          </div>
         )}
       </div>
     </div>

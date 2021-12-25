@@ -17,7 +17,7 @@ export default function Home() {
         <div className=" flex flex-col min-h-screen dark:bg-[#121212] ">
           <DarkModeToggle />
           <div className=" my-[10%] px-4  ">
-            <SearchBar mWidth={`800px`} />
+            <SearchBar />
             <FamousPlaces />
           </div>
         </div>

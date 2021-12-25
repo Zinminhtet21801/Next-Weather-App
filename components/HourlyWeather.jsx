@@ -6,7 +6,7 @@ const HourlyWeather = ({ hourlyWeather, timezone }) => {
   const dummy = hourlyWeather.map((weather, index) => (
     <div
       key={weather.dt}
-      className="rounded-[5px] min-w-[110px] bg-[#004daa] text-center p-[10px]   "
+      className="rounded-[5px] min-w-[110px] bg-[#5e60ce] text-center p-[10px] text-white  "
     >
       <p className="font-light text-[1rem] ">
         {index == 0 ? "Now" : moment.unix(weather.dt).tz(timezone).format("LT")}
