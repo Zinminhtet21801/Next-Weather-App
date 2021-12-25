@@ -52,8 +52,8 @@ const WeeklyWeather = ({ weeklyWeather, timezone }) => {
                   <Image
                     src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                     alt="Weather Icon"
-                    height={80}
-                    width={80}
+                    width={120}
+                    height={120}
                   />
  
 

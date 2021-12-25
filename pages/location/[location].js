@@ -12,12 +12,12 @@ import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const city = getCityId(context.params.location);
-
   if (!city) {
     return {
       notFound: true,
     };
   }
+
 
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${city.coord.lat}&lon=${city.coord.lon}&appid=${process.env.WEATHER_API}&exclude=minutely&units=metric`

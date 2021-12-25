@@ -33,6 +33,7 @@ const FamousPlaces = () => {
   return (
     <div className="flex items-center justify-between flex-wrap mx-auto max-w-[800px] mt-5  ">
       {places.map((place, index) => (
+        console.log(place.url),
         <Link href={place.url} passHref key={index}>
           <div className="  dark:text-white  cursor-pointer group p-2 ">
             <Image
