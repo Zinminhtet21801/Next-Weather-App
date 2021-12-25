@@ -3,5 +3,5 @@ module.exports = {
   images: {
     domains: [`openweathermap.org`],
   },
-  webpack5: true,
+  webpack5: false,
 };
